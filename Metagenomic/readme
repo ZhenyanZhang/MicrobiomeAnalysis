@@ -1,6 +1,6 @@
 # Metagenomic Data Analysis Pipeline
 
-Welcome to the Metagenomic Data Analysis Pipeline! This repository contains a series of shell scripts designed to process raw metagenomic sequencing data into functional biological insights. 
+Welcome to the Metagenomic Data Analysis Pipeline! This repository contains a series of shell scripts designed to process raw metagenomic sequencing data into functional biological insights.
 
 If you are new to bioinformatics, don't worry! This guide will walk you through the standard workflow step by step. 
 
