@@ -1,0 +1,48 @@
+# Metagenomic Data Analysis Pipeline
+
+Welcome to the Metagenomic Data Analysis Pipeline! This repository contains a series of shell scripts designed to process raw metagenomic sequencing data into functional biological insights. 
+
+If you are new to bioinformatics, don't worry! This guide will walk you through the standard workflow step by step. 
+
+## 🧰 Pipeline Components
+Here are the core scripts used in this pipeline (click to view the source code):
+* **Step 1:** [data_check.sh](./data_check.sh) — Verifies that your downloaded `.fastq.gz` files are complete and intact to prevent downstream errors.
+* **Step 2:** [Meta_qc_multi.sh](./Meta_qc_multi.sh) — Uses `fastp` to trim artificial adapters and filter out low-quality reads ("garbage in, garbage out").
+* **Step 3:** [assembly_multi.sh](./assembly_multi.sh) — Uses `MEGAHIT` to computationally stitch your millions of short reads together into long, contiguous sequences (contigs).
+* **Step 4:** [bin_multi.sh](./bin_multi.sh) — Groups the assembled contigs back into individual bins (Metagenome-Assembled Genomes, or MAGs) based on sequence composition.
+
+---
+
+## 🚀 Standard Workflow Execution
+
+You can run the entire pipeline sequentially using the commands below. 
+**Important:** Make sure to replace the `<...>` placeholders with your actual file paths and parameters before running!
+
+```bash
+# ==========================================
+# Step 1: Data Integrity Check
+# ==========================================
+bash data_check.sh \
+    --input_dir <path_to_your_raw_data> \
+    # ... (add other parameters here)
+
+# ==========================================
+# Step 2: Quality Control (QC)
+# ==========================================
+bash Meta_qc_multi.sh \
+    --raw_reads <path_to_checked_data> \
+    # ... (add other parameters here)
+
+# ==========================================
+# Step 3: De Novo Assembly
+# ==========================================
+bash assembly_multi.sh \
+    --clean_reads <path_to_qc_reads> \
+    # ... (add other parameters here)
+
+# ==========================================
+# Step 4: Contig Binning
+# ==========================================
+bash bin_multi.sh \
+    --contigs <path_to_assembled_contigs.fa> \
+    # ... (add other parameters here)
