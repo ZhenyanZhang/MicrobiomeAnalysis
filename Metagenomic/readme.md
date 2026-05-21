@@ -22,23 +22,17 @@ You can run the entire pipeline sequentially using the commands below.
 # ==========================================
 # Step 1: Data Integrity Check
 # ==========================================
-bash data_check.sh \
-    --input_dir <path_to_your_raw_data> \
-    # ... (add other parameters here)
+bash data_check.sh <path_to_your_downloaded_data> <path_to_your_raw_data> <number of jobs>
 
 # ==========================================
 # Step 2: Quality Control (QC)
 # ==========================================
-bash Meta_qc_multi.sh \
-    --raw_reads <path_to_checked_data> \
-    # ... (add other parameters here)
+bash Meta_qc_multi.sh <path_to_your_raw_data> <path_to_your_clean_data> <number of jobs>
 
 # ==========================================
 # Step 3: De Novo Assembly
 # ==========================================
-bash assembly_multi.sh \
-    --clean_reads <path_to_qc_reads> \
-    # ... (add other parameters here)
+bash assembly_multi.sh 
 
 # ==========================================
 # Step 4: Contig Binning
