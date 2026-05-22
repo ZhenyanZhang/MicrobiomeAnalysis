@@ -32,7 +32,7 @@ bash Meta_qc_multi.sh <path_to_your_raw_data> <path_to_your_clean_data> <number 
 # ==========================================
 # Step 3: De Novo Assembly
 # ==========================================
-bash assembly_multi.sh 
+bash assembly_multi.sh <path_to_your_clean_data> <path_to_your_contig> <number of jobs>
 
 # ==========================================
 # Step 4: Contig Binning
